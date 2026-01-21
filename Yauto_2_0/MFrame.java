@@ -6,7 +6,7 @@ import java.awt.*;
 
 public class MFrame extends JFrame{
 
-    private String hotkey = "CTRL + M";
+    private String hotkey = "m";
 
     public MFrame(String title, int width, int height) {
 
@@ -38,7 +38,7 @@ public class MFrame extends JFrame{
         this.add(minutes);
 
         MLabel secondsLabel = new MLabel("Seconds", (10 * 5) + (80 * 2), (10 * 3) + (80 * 1), 80, 40);
-        MTextField seconds = new MTextField("0", (10 * 5) + (80 * 2), (10 * 3) + (80 * 1) + 40, 80, 40);
+        MTextField seconds = new MTextField("1", (10 * 5) + (80 * 2), (10 * 3) + (80 * 1) + 40, 80, 40);
         this.add(secondsLabel);
         this.add(seconds);
 
