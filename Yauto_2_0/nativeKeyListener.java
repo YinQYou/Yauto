@@ -5,7 +5,7 @@ import com.github.kwhat.jnativehook.keyboard.NativeKeyListener;
 
 public class nativeKeyListener implements NativeKeyListener {
 
-    private final String key = "m";
+    private final Character key = '\\';
 
     private final MFrame frame;
     private final MAction action;
@@ -18,9 +18,9 @@ public class nativeKeyListener implements NativeKeyListener {
     }
 
     @Override
-    public void nativeKeyPressed(NativeKeyEvent e) {
+    public void nativeKeyTyped(NativeKeyEvent e) {
 
-        if (NativeKeyEvent.getKeyText(e.getKeyCode()).toLowerCase().equals(key.toLowerCase())) { // executes if pressed.equals(hotkey)
+        if ((int) e.getKeyChar() == (int) key) { // executes if pressed.equals(hotkey)
             if (((MButton) frame.getContentPane().getComponentAt(10, (10 * 7) + (80 * 3))).isEnabled()) {
                 action.orStartStop("Start");
             }

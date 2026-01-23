@@ -3,10 +3,12 @@ package Yauto_2_0;
 import javax.swing.JFrame;
 import javax.swing.ButtonGroup;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 public class MFrame extends JFrame{
 
-    private String hotkey = "m";
+    private String hotkey = "\\";
 
     public MFrame(String title, int width, int height) {
 
