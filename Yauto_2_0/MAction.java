@@ -23,7 +23,6 @@ public class MAction extends AbstractAction {
                 case "Mouse", "Keyboard", "Custom" -> mainChoices(e.getActionCommand());
                 case "Start", "Stop" -> orStartStop(e.getActionCommand());
                 case "Settings" -> settingsMenu();
-                default -> System.out.println("what did you do ???");
             }
         }
         catch (Exception error) {
@@ -119,7 +118,9 @@ public class MAction extends AbstractAction {
     }
 
     private void settingsMenu() {
+
         System.out.println("settings");
+
     }
 
 }

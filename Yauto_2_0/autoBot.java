@@ -16,10 +16,35 @@ public class autoBot {
 
     private int getDelay() {
 
-        int hours = Integer.parseInt(((MTextField) this.frame.getContentPane().getComponentAt(10, (10 * 3) + (80 * 1) + 40)).getText());
-        int minutes = Integer.parseInt(((MTextField) this.frame.getContentPane().getComponentAt((10 * 3) + (80 * 1), (10 * 3) + (80 * 1) + 40)).getText());
-        int seconds = Integer.parseInt(((MTextField) this.frame.getContentPane().getComponentAt((10 * 5) + (80 * 2), (10 * 3) + (80 * 1) + 40)).getText());
-        int milliseconds = Integer.parseInt(((MTextField) this.frame.getContentPane().getComponentAt((10 * 7) + (80 * 3), (10 * 3) + (80 * 1) + 40)).getText());
+        int hours;
+        int minutes;
+        int seconds;
+        int milliseconds;
+
+        if (!((MTextField) this.frame.getContentPane().getComponentAt(10, (10 * 3) + (80 * 1) + 40)).getText().matches("\\d+")) {
+            hours = 0;
+        }
+        else {
+            hours = Integer.parseInt(((MTextField) this.frame.getContentPane().getComponentAt(10, (10 * 3) + (80 * 1) + 40)).getText());
+        }
+        if (!((MTextField) this.frame.getContentPane().getComponentAt((10 * 3) + (80 * 1), (10 * 3) + (80 * 1) + 40)).getText().matches("\\d+")) {
+            minutes = 0;
+        }
+        else {
+            minutes = Integer.parseInt(((MTextField) this.frame.getContentPane().getComponentAt((10 * 3) + (80 * 1), (10 * 3) + (80 * 1) + 40)).getText());
+        }
+        if (!((MTextField) this.frame.getContentPane().getComponentAt((10 * 5) + (80 * 2), (10 * 3) + (80 * 1) + 40)).getText().matches("\\d+")) {
+            seconds = 0;
+        }
+        else {
+            seconds = Integer.parseInt(((MTextField) this.frame.getContentPane().getComponentAt((10 * 5) + (80 * 2), (10 * 3) + (80 * 1) + 40)).getText());
+        }
+        if (!((MTextField) this.frame.getContentPane().getComponentAt((10 * 7) + (80 * 3), (10 * 3) + (80 * 1) + 40)).getText().matches("\\d+")) {
+            milliseconds = 0;
+        }
+        else {
+            milliseconds = Integer.parseInt(((MTextField) this.frame.getContentPane().getComponentAt((10 * 7) + (80 * 3), (10 * 3) + (80 * 1) + 40)).getText());
+        }
 
         return (hours * 3600000) + (minutes * 60000) + (seconds * 1000) + (milliseconds) < 8 ? 8 : (hours * 3600000) + (minutes * 60000) + (seconds * 1000) + (milliseconds);
 
