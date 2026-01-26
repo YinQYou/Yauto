@@ -8,11 +8,21 @@ public class MAction extends AbstractAction {
 
     private final Container cPane;
     private final autoBot bot;
+    private final MDialog dialog;
+
+    public MAction(MDialog dialog) {
+
+        this.cPane = null;
+        this.bot = null;
+        this.dialog = dialog;
+
+    }
 
     public MAction(MFrame frame) {
 
         this.cPane = frame.getContentPane();
         this.bot = new autoBot(frame);
+        this.dialog = null;
 
     }
 
@@ -23,6 +33,7 @@ public class MAction extends AbstractAction {
                 case "Mouse", "Keyboard", "Custom" -> mainChoices(e.getActionCommand());
                 case "Start", "Stop" -> orStartStop(e.getActionCommand());
                 case "Settings" -> settingsMenu();
+                case "New" -> changeHotkey();
             }
         }
         catch (Exception error) {
@@ -118,8 +129,24 @@ public class MAction extends AbstractAction {
     }
 
     private void settingsMenu() {
+        MDialog dialog = new MDialog("Settings (WIP)", 200, 50);
 
-        System.out.println("settings");
+        MButton newHotkey = new MButton(new MAction(dialog), "New", 125, 5, 70, 40);
+        dialog.add(newHotkey);
+
+        MLabel hotkey = new MLabel("Hotkey: ", 5, 5, 50, 40);
+        dialog.add(hotkey);
+
+        MTextField newkey = new MTextField("", 60, 5, 40, 40);
+        dialog.add(newkey);
+
+        dialog.setVisible(true);
+    }
+
+    private void changeHotkey() {
+
+        String text = ((MTextField) this.dialog.getContentPane().getComponentAt(60, 5)).getText();
+        dialog.dispose();
 
     }
 
